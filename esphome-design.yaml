@@ -1,0 +1,51 @@
+#HomeAssistant
+
+
+#ESPHome
+  devName
+  devDesc
+  boolRelayL
+  boolRelayR
+  btnLeft
+  btnRight
+  txtTime
+  txtDate
+  boolSleepEnabled
+  boolDimEnabled
+  txtPageName
+  nbrBacklightMax
+  nbrBacklightDim
+  nbrBacklightCur
+  nbrSleepAfter
+  nbrDimAfter
+  nbrHomeAfter
+  nbrTempOutside
+  nbrTempRoom
+  nbrTempRoomTarget
+  nbrTempInternal
+  nbrWeatherIcon
+  txtWeatherDesc
+  txtWeatherTemp
+  txtWeatherHumidity
+  
+
+
+#Nextion
+##Program
+##Page
+  gestures
+
+
+###Home
+###Boot
+###Screensaver
+  
+##Popup
+###popupNotification
+###popupWeather
+###popupHvac
+###popupLight
+###popupAudio
+###popupVideo
+###popupSecurity
+###popupSettings

@@ -1,0 +1,73 @@
+substitutions:
+  #Device Information
+  device_name: 'stepper-test'
+  device_description: 'Stepper PWM Tester'
+  #ESPHome
+  ota_password: '36215290193febd10708246414338486'
+  #HomeAssistant
+  api_encryption_key: 'tbhrlha8hK0xe1Rvd75SUTVg191k5PN8HCsfyh1gBJY='
+  timezone: 'US/Central'
+  #Defaults
+
+esphome:
+  name: $device_name
+  comment: $device_description
+
+esp8266:
+#  board: esp01_1m
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+  ap:
+    ssid: $device_name
+    password: !secret fallback_password
+
+#Enabled Other The Air updates
+ota:
+  password: $ota_password
+
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: $api_encryption_key
+  services:
+    - service: control_stepper
+      variables:
+        target: int
+      then:
+        - stepper.set_target:
+            id: my_stepper
+            target: !lambda 'return target;'
+
+captive_portal:
+
+#Configuration Variables available for stepper:
+stepper:
+  - platform: uln2003
+    #id (Required, ID): Specify the ID of the stepper so that you can control it.
+    id: my_stepper
+    #pin_a (Required, Pin Schema): The pin a of the stepper control board.
+    pin_a: D1
+    #pin_b (Required, Pin Schema): The pin b of the stepper control board.
+    pin_b: D2
+    #pin_c (Required, Pin Schema): The pin c of the stepper control board.
+    pin_c: D5
+    #pin_d (Required, Pin Schema): The pin d of the stepper control board.
+    pin_d: D6
+    max_speed: 250 steps/s
+    #sleep_when_done (Optional, boolean): Whether to turn off all coils when the stepper has reached the target position
+
+    # Optional:
+    #step_mode (Optional, string): The step mode to operate the motor with. One of:
+      #FULL_STEP (Default)
+      #HALF_STEP
+      #WAVE_DRIVE
+    acceleration: inf
+    deceleration: inf

@@ -1,0 +1,56 @@
+substitutions:
+  #Device Information
+  device_name: 'pir-test'
+  device_description: 'PIR Motion Test'
+  device_web_server_port: '80'
+  #ESPHome
+  ota_password: '36215290193febd10708246414338486'
+  #HomeAssistant
+  api_encryption_key: 'tbhrlha8hK0xe1Rvd75SUTVg191k5PN8HCsfyh1gBJY='
+  timezone: 'US/Central'
+  #Defaults
+  screen_default_brightness: '50'
+
+esphome:
+  name: $device_name
+  comment: $device_description
+
+esp8266:
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: true
+  ap:
+    ssid: $device_name
+    password: !secret fallback_password
+
+web_server:
+  port: $device_web_server_port  
+
+ota:
+  password: $ota_password
+
+logger:
+  level: DEBUG
+  logs:
+    sensor: WARN
+    resistance: WARN
+    text_sensor: WARN
+    ntc: WARN
+
+api:
+  encryption:
+    key: $api_encryption_key
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D2
+    name: "PIR Sensor"
+    id: pir
+    device_class: motion
+    filters:
+      - delayed_on: 10ms
+      - delayed_off: 10ms    

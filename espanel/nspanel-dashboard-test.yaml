@@ -1,0 +1,51 @@
+type: picture-elements
+elements:
+  - type: state-badge
+    entity: binary_sensor.remote_ui
+    style:
+      top: 100px
+      left: 100px
+  - type: service-button
+    title: Turn lights off
+    style:
+      top: 200px
+      left: 120px
+    service: homeassistant.turn_off
+    service_data:
+      entity_id: group.all_lights
+  - type: image
+    entity: switch.left_relay
+    tap_action:
+      action: toggle
+    image: local/images/NSPanel_Button.png?v=2
+    style:
+      top: 90%
+      left: 26%
+      width: 47%
+      border: 0px solid
+    filter: none
+  - type: image
+    entity: switch.right_relay
+    tap_action:
+      action: toggle
+    image: local/images/NSPanel_Button.png?v=2
+    style:
+      top: 90%
+      left: 74%
+      width: 47%
+      border: 0px solid
+    filter: none
+  - type: image
+    entity: switch.left_relay
+    image: local/images/SwitchManM5_Led_Off.png?v=2
+    tap_action:
+      action: null
+    state_image:
+      on-blue: local/images/SwitchManM5_Led_On_Blue.png?V=2
+    style:
+      top: 86%
+      left: 16%
+      width: 30%
+      height: 15%
+    filter: none  
+image: local/images/NSPanel.png

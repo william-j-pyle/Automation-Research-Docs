@@ -1,0 +1,74 @@
+type: picture-elements
+elements:
+  - type: image
+    entity: sensor.switchmanm5_left_test
+    image: local/images/SwitchManM5_Led_Off.png?v=2
+    tap_action:
+      action: null
+    state_image:
+      on-red: local/images/SwitchManM5_Led_On_Red.png?V=2
+    style:
+      top: 86%
+      left: 16%
+      width: 25%
+    filter: none
+  - type: image
+    entity: sensor.switchmanm5_middle_test
+    image: local/images/SwitchManM5_Led_Off.png?v=2
+    tap_action:
+      action: null
+    state_image:
+      on-red: local/images/SwitchManM5_Led_On_Red.png?V=2
+      on-blue: local/images/SwitchManM5_Led_On_Blue.png?V=2
+      on-red-blue: local/images/SwitchManM5_Led_On_RedBlue.png?V=2
+    style:
+      top: 86%
+      left: 50%
+      width: 25%
+    filter: none
+  - type: image
+    entity: sensor.switchmanm5_right_test
+    image: local/images/SwitchManM5_Led_Off.png?v=2
+    tap_action:
+      action: null
+    state_image:
+      on-red: local/images/SwitchManM5_Led_On_Red.png?V=2
+    style:
+      top: 86%
+      left: 84%
+      width: 25%
+    filter: none
+  - type: image
+    entity: switch.left_button_2
+    image: local/images/SwitchManM5_Button.png?v=2
+    tap_action:
+      action: toggle
+    style:
+      top: 50%
+      left: 16.5%
+      border: 0px solid
+      width: 33%
+    filter: none
+  - type: image
+    entity: switch.middle_button_2
+    image: local/images/SwitchManM5_Button.png?v=2
+    tap_action:
+      action: toggle
+    style:
+      top: 50%
+      left: 50%
+      border: 0px solid
+      width: 33%
+    filter: none
+  - type: image
+    entity: switch.right_button_2
+    image: local/images/SwitchManM5_Button.png?v=2
+    tap_action:
+      action: toggle
+    style:
+      top: 50%
+      left: 83%
+      width: 33%
+      border: 0px solid
+    filter: none
+image: local/images/SwitchManM5.png?V=2
